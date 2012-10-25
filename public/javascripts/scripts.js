@@ -53,7 +53,7 @@ function playRandomSound() {
     } else {
         soundManager.createSound({
             id: 'lala'+name,
-            url: '/mp3/'+name+'.mp3',
+            url: 'mp3/'+name+'.mp3',
             autoLoad: true,
             autoPlay: false,
             onload: function() {
