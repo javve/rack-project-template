@@ -1,63 +1,19 @@
-var mp3s = [
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        "13",
-        "14",
-        "15",
-        "16",
-        "b1",
-        "b2",
-        "b4",
-        "b5",
-        "b6",
-        "b7",
-        "b8",
-        "b9",
-        "b10",
-        "b11",
-        "b12",
-        "b13",
-        "b14",
-        "b15",
-        "b16",
-        "b17",
-        "b18",
-        "b19",
-        "b20",
-        "b21",
-        "b22",
-        "b23",
-        "b24",
-        "b25",
-        "b26",
-        "b27",
-        "b28",
-        "b29",
-        "b30",
-        "b31"
-    ],
-    sounds = {};
+var sounds = {};
 
-function playRandomSound() {
-    var name = mp3s[Math.floor(Math.random() * mp3s.length)];
-    console.log('play', name, sounds['mp3'+name]);
-    if (sounds['mp3'+name]) {
-        console.log('exists', sounds['mp3'+name]);
-        sounds['mp3'+name].play();
+function playSound(nr) {
+    nr = nr || Math.floor(Math.random()*42) + 1;
+    hash.add({ quote: nr });
+    var name = 'mp3'+nr;
+    if (sounds[name]) {
+        sounds[name].play();
     } else {
         soundManager.createSound({
-            id: 'lala'+name,
-            url: 'mp3/'+name+'.mp3',
+            id: name,
+            url: 'mp3/'+nr+'.mp3',
             autoLoad: true,
             autoPlay: false,
             onload: function() {
-                sounds['mp3'+name] = this;
+                sounds[name] = this;
                 this.play();
             },
             volume: 50
@@ -74,7 +30,10 @@ soundManager.setup({
     * iPad/iPhone and devices without flash installed will always attempt to use it.
     */
     onready: function() {
-        playRandomSound();
+        var nr = hash.get('quote') || 12;
+        playSound(nr);
     }
 });
-document.getElementById('play').addEventListener("click", playRandomSound, false);
+document.getElementById('play').addEventListener("click", function() {
+    playSound();
+}, false);
