@@ -1,11 +1,23 @@
-var sounds = {};
+var sounds = {},
+    playBtn = document.getElementById('play'),
+    numberOfQuotes = 38;
+
+function disableButton() {
+    playBtn.disabled = true;
+    playBtn.innerHTML = "Playing sound...";
+}
+function enableButton() {
+    playBtn.disabled = false;
+    playBtn.innerHTML = "Play Random Sale Quote";
+}
 
 function playSound(nr) {
-    nr = nr || Math.floor(Math.random()*42) + 1;
+    nr = nr || Math.floor(Math.random()*38) + 1;
     hash.add({ quote: nr });
     var name = 'mp3'+nr;
+    disableButton();
     if (sounds[name]) {
-        sounds[name].play();
+        sounds[name].play({ onfinish:enableButton });
     } else {
         soundManager.createSound({
             id: name,
@@ -14,7 +26,7 @@ function playSound(nr) {
             autoPlay: false,
             onload: function() {
                 sounds[name] = this;
-                this.play();
+                this.play({ onfinish:enableButton });
             },
             volume: 50
         });
@@ -34,6 +46,6 @@ soundManager.setup({
         playSound(nr);
     }
 });
-document.getElementById('play').addEventListener("click", function() {
+playBtn.addEventListener("click", function() {
     playSound();
 }, false);
