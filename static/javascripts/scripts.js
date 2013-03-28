@@ -44,21 +44,28 @@ var sounds = {},
     ];
 
 
-function playSound(nr) {
-    nr = nr || Math.floor(Math.random()*38) + 1;
-    hash.add({ quote: nr });
+function playSound(link) {
+    var quote;
+    for (var i = 0; i < quotes.length; i++) {
+        if (quotes[i].link == link) {
+            quote = quotes[i];
+            quote.index = i+1;
+            break;
+        }
+    }
 
     if (currentPlaying) {
         soundManager.stop(currentPlaying);
     }
-    document.getElementById('quote-text').innerHTML = quotes[nr-1].quote;
-    currentPlaying = 'mp3'+nr;
-    if (sounds[currentPlaying]) {
-        sounds[currentPlaying].play({ onfinish:function() {} });
+    document.getElementById('quote-text').innerHTML = quote.quote;
+    currentPlaying = quote;
+
+    if (sounds[currentPlaying.link]) {
+        sounds[currentPlaying.link].play({ onfinish:function() {} });
     } else {
         soundManager.createSound({
-            id: currentPlaying,
-            url: 'mp3/'+nr+'.mp3',
+            id: currentPlaying.link,
+            url: 'mp3/'+currentPlaying.index+'.mp3',
             autoLoad: true,
             autoPlay: false,
             onload: function() {
@@ -79,8 +86,7 @@ soundManager.setup({
     * iPad/iPhone and devices without flash installed will always attempt to use it.
     */
     onready: function() {
-        var nr = hash.get('quote') || 12;
-        playSound(nr);
+        playFirstSound();
     }
 });
 playBtn.addEventListener("click", function() {

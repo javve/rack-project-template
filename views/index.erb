@@ -13,10 +13,10 @@
     <meta name="author" content="Jonny Strömberg">
 
     <!-- Open graph -->
-    <meta property="og:title" content="It's closing week. Remember: ABC, ALWAYS BE CLOSING!" />
+    <meta property="og:title" content="<%= quote[:quote] %>" />
     <meta property="og:description" content="The one place on Internet for sales inspiration." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://closingweek.com/" />
+    <meta property="og:url" content="http://closingweek.com/<%= quote[:link] %>" />
     <meta property="og:image" content="http://closingweek.com/images/facebook.png" />
 
     <!-- Favicon -->
@@ -42,12 +42,40 @@
     </script>
 </head>
 <body>
+    <div class="container">
+        <div class="quote">
+            <h1 id="quote-text"><%= quote[:quote] %></h1>
 
-    <h1>ABC - Always be closing!</h1>
-    <p class="tagline">The one place on Internet for sales inspiration.</p>
+            <h3>Share this quote, NOW!</h3>
+            <div class="share">
+                <div class="share-btn">
+                    <a href="https://twitter.com/share" class="twitter-share-button"
+                        data-text="<%= quote[:quote] %>"
+                        data-url="http://closingweek.com/<%= quote[:link] %>">Tweet</a>
+                </div>
 
-    <div class="quote">
-        <div id="quote-text"></div>
+                <div class="share-btn">
+                    <a href="https://twitter.com/javve" class="twitter-follow-button" data-show-count="false">Follow @javve</a>
+                </div>
+
+                <div class="share-btn">
+                    <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false" data-font="arial"
+                        data-width="100"
+                        data-href="http://closingweek.com/<%= quote[:link] %>"></div>
+                </div>
+
+                <div class="share-btn">
+                    <div class="g-plusone" data-size="medium" data-annotation="inline"
+                        data-width="120"
+                        href="http://closingweek.com/<%= quote[:link] %>"></div>
+                </div>
+            </div>
+        </div>
+
+        <a href="/random" id="play">Play Random Sale Quote</a>
+
+
+        <h3>Share this site</h3>
         <div class="share">
             <div class="share-btn">
                 <a href="https://twitter.com/share" class="twitter-share-button"
@@ -74,37 +102,14 @@
         </div>
     </div>
 
-    <button id="play">Play Random Sale Quote</button>
-
-    <div class="share">
-        <div class="share-btn">
-            <a href="https://twitter.com/share" class="twitter-share-button"
-                data-text="It's closing week. Remember: ABC, ALWAYS BE CLOSING! By @javve"
-                data-hashtags="abc"
-                data-url="http://closingweek.com/">Tweet</a>
-        </div>
-
-        <div class="share-btn">
-            <a href="https://twitter.com/javve" class="twitter-follow-button" data-show-count="false">Follow @javve</a>
-        </div>
-
-        <div class="share-btn">
-            <div class="fb-like" data-send="false" data-layout="button_count" data-show-faces="false" data-font="arial"
-                data-width="100"
-                data-href="http://closingweek.com/"></div>
-        </div>
-
-        <div class="share-btn">
-            <div class="g-plusone" data-size="medium" data-annotation="inline"
-                data-width="120"
-                href="http://closingweek.com/"></div>
-        </div>
-    </div>
-
     <!-- Scripts -->
-    <script src="javascripts/hash.min.js"></script>
     <script src="javascripts/soundmanager2-nodebug-jsmin.js"></script>
     <script src="javascripts/scripts.js"></script>
+    <script type="text/javascript">
+        function playFirstSound() {
+            playSound('<%= quote[:link] %>');
+        }
+    </script>
 
     <!-- Social -->
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

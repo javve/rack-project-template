@@ -1,0 +1,77 @@
+body {
+    font-family: Helvetica, arial, sans-serif;
+    padding-top:50px;
+    text-align: center;
+    background-color:#F5F3F0;
+}
+.container {
+  max-width:800px;
+  margin:0 auto;
+}
+h1 {
+    font-size:50px;
+    margin:0 0 40px;
+    line-height: 1.1;
+    color:#555;
+}
+.tagline {
+    margin-bottom:60px;
+}
+
+.quote {
+    background-color: #fff;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    padding:40px 60px;
+    margin-bottom:50px;
+}
+
+#play {
+    margin:0 auto 20px;
+    display: inline-block;
+    color: #eee;
+    font-size: 30px;
+    padding-top: 25px;
+    padding-right: 45px;
+    padding-bottom: 25px;
+    padding-left: 45px;
+    text-decoration: none;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border: solid #111 0px;
+    background-color: #6ac25c;
+    font-weight: bold;
+    cursor: pointer;
+    cursor: hand;
+
+    -webkit-transition: all 0.3s ease-out;  /* Safari 3.2+, Chrome */
+    -moz-transition: all 0.3s ease-out;  /* Firefox 4-15 */
+    -o-transition: all 0.3s ease-out;  /* Opera 10.5–12.00 */
+    transition: all 0.3s ease-out;  /* Firefox 16+, Opera 12.50+ */
+}
+#play:hover {
+    background-color: #4e9d41;
+    color:#fff;
+}
+#play[disabled] {
+    background:none;
+    background-color:#222;
+    color:#666;
+}
+#play[disabled]:hover {
+  background-position:0 0;
+    color:#666;
+}
+
+.share {
+    margin:0 auto;
+    width:500px;
+    padding-left:70px;
+    height:30px;
+}
+.share .share-btn {
+    text-align: left;
+    float:left;
+    width:120px;
+    height:20px;
+}
