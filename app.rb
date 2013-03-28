@@ -10,7 +10,7 @@ quotes = [
   { link:"fuck-you-mom-and-dad", quote: "Parents don\'t like the life you lead. Fuck your mom and dad." },
   { link:"dont-waste-my-fucking-time", quote: "But if you really want this, you call me on Monday and we\'ll talk. Just don\'t waste my fucking time." },
   { link:"coffee-is-for-closers-only", quote: "Put that coffee down. Coffee\'s for closers only." },
-  { link:"your-fired", quote: "\"I don\'t have to listen to this shit.\" \"You certainly don\'t pal. \'Cause the good news is -- you\'re fired.\"" },
+  { link:"your-fired", quote: "I don\'t have to listen to this shit. -- You certainly don\'t pal. \'Cause the good news is -- you\'re fired." },
   { link:"sales-contest", quote: "This months sales contest. First prize is a Cadillac Eldorado. Second prize\'s a set of steak knives. Third prize is you\'re fired." },
   { link:"you-got-leads", quote: "You got leads. Mitch and Murray paid good money. Get their names to sell them!" },
   { link:"you-cant-close-shit", quote: "You can\'t close the leads you\'re given, you can\'t close shit, you ARE shit, hit the bricks pal and beat it \'cause you are going out!" },
