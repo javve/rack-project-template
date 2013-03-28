@@ -23,8 +23,26 @@ h1 {
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
     padding:40px 60px;
-    margin-bottom:50px;
+    margin-bottom:10px;
 }
+.navigation {
+    padding:10px;
+    margin-bottom:30px;
+}
+.navigation a {
+    color:#7ba9d4;
+}
+.navigation a:hover {
+    color:#8bbae4;
+}
+.navigation .next {
+    float:right;
+}
+.navigation .prev {
+    float:left;
+}
+
+
 
 #play {
     margin:0 auto 20px;

@@ -2,6 +2,8 @@ var sounds = {},
     playBtn = document.getElementById('play'),
     numberOfQuotes = 38,
     currentPlaying = "",
+    next = document.getElementById('next'),
+    prev = document.getElementById('prev'),
     quotes = [
         { link:"do-not-make-friends", quote: "We're not here to make friends, we are not saving the fucking manatees here guys." },
         { link:"your-friends-are-shit", quote: "Your friends are shit. You tell em you made 25 grand last month they're not gonna fucking believe you. Fuck them! Fuck 'em!" },
@@ -48,6 +50,13 @@ function playSound(link) {
     var quote;
     for (var i = 0; i < quotes.length; i++) {
         if (quotes[i].link == link) {
+
+            var nextIndex = ((i+1) !== quotes.length) ? i+1 : 0;
+            var prevIndex = ((i-1) !== -1) ? i-1 : quotes.length - 1;
+
+            next.href = '/'+quotes[nextIndex].link;
+            prev.href = '/'+quotes[prevIndex].link;
+
             quote = quotes[i];
             quote.index = i+1;
             break;
