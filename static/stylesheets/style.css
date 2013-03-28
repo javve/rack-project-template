@@ -65,8 +65,7 @@ h1 {
 
 .share {
     margin:0 auto;
-    width:500px;
-    padding-left:70px;
+    display: inline-block;
     height:30px;
 }
 .share .share-btn {
