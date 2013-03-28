@@ -65,7 +65,7 @@ function playSound(link) {
     } else {
         soundManager.createSound({
             id: currentPlaying.link,
-            url: 'mp3/'+currentPlaying.index+'.mp3',
+            url: 'https://s3-eu-west-1.amazonaws.com/closingweek/mp3/'+currentPlaying.index+'.mp3',
             autoLoad: true,
             autoPlay: false,
             onload: function() {
